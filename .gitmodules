@@ -1,0 +1,3 @@
+[submodule "openHost"]
+	path = openHost
+	url = https://github.com/AidanWelch/openHost
