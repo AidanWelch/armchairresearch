@@ -1,4 +1,4 @@
-require('openhost')(8081);
+require('openhost')(8091);
 
 var express = require('express');
 var app = express();
@@ -19,4 +19,4 @@ app.get('/logos/favicon.ico', (req, res) => {
 
 app.use(express.static("placeholders"));
 
-app.listen(80);
+app.listen(8092);
