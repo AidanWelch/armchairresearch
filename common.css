@@ -1,0 +1,16 @@
+@charset "UTF-8";
+#sidebar {
+	height: 100%;
+	width: 8%;
+	position: fixed;
+	top: 1%;
+	left: 1%;
+	bottom: 1%;
+	padding: 1% 1%;
+	background-color: rgb(223, 223, 223);
+}
+
+#content {
+	margin-left: 15%;
+	padding: 1% 1%;
+}
