@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AidanWelch/armchairresearch#readme",
   "dependencies": {
+    "mongodb": "^3.3.2",
     "openhost": "file:openHost"
   }
 }
