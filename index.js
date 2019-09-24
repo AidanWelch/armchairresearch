@@ -26,7 +26,7 @@ mongoService.connect( (err, client) => {
 
     app.use('/page', pagehandler);
 
-    app.use('/$', express.static("placeholders"));
+    app.use('/', express.static("placeholders"));
 
     app.listen(8092);
 });
