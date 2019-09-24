@@ -30,7 +30,7 @@ The pages content is reconstructed from the change history.  There is a bit of a
 
 Comments may or may not be included, same for epochtime(investigate Year 2038 problem) or datetime.
 
-# User Schema
+# User Schema:
 ```json
 {
     "_id": "userid",

@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 var path = require('path');
 
 require('openhost')(8091);
@@ -9,6 +10,8 @@ var mongoService = require('./mongoService');
 mongoService.connect( (err, client) => {
     if (err) console.error(err);
     var pagehandler= require('./pagehandler.js');
+
+    app.use(bodyParser.json());
 
     ////Serve resources
     //CSS

@@ -4,7 +4,10 @@ var router = express.Router();
 var db = require('./mongoService').getDb();
 
 router.get('/:pageid', (req, res) =>{
-
+    db.collection('pages').findOne({_id: pageid}, (err, page) => {
+        if (err) console.error(err);
+        
+    });
 });
 
 
