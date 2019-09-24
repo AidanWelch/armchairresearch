@@ -8,6 +8,7 @@ Source for armchairresearch.org
     "title": "string",
     "category": "string",
     "subcategory": "string",
+    "content": "string",
     "changes": [{
         "changeid": "int(starting from 0, basically an unsigned long)",
         ("author": "string") || ("ip": "string"),
@@ -26,7 +27,9 @@ Source for armchairresearch.org
 }
 ```
 
-The pages content is reconstructed from the change history.  There is a bit of a trade off here; storing the constructed page would require more storage but would be more effecient.  This could change to that.
+~~The pages content is reconstructed from the change history.  There is a bit of a trade off here; storing the constructed page would require more storage but would be more effecient.  This could change to that.~~  Simplicity of code is an important on this project, and it was found essentially 2 seperate copies allows that.
+
+I am torn on whether to include subcategories or not.  I am also torn on whether to store the category list in the DB, hardcoded into the server, or possibly even in a local file.
 
 Comments may or may not be included, same for epochtime(investigate Year 2038 problem) or datetime.
 
