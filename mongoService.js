@@ -2,6 +2,8 @@
 const url = process.env.MONGOURL || "mongodb://localhost:27017";
 const dbname = process.env.dbname || "armchair_db";
 
+
+var MongoClient = require('mongodb').MongoClient;
 var _db;
 
 module.exports = {
