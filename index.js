@@ -3,7 +3,6 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 
-require('openhost')(8091);
 var mongoService = require('./mongoService');
 
 //run everything once db starts
@@ -28,5 +27,5 @@ mongoService.connect( (err, client) => {
 
     app.use('/', express.static("placeholders"));
 
-    app.listen(8092);
+    app.listen(80);
 });
