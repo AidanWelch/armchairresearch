@@ -27,5 +27,5 @@ mongoService.connect( (err, client) => {
 
     app.use('/', express.static("placeholders"));
 
-    app.listen(80);
+    app.listen(process.env.PORT || 80);
 });
