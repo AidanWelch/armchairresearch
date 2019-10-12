@@ -15,11 +15,11 @@ mongoService.connect( (err, client) => {
     ////Serve resources
     //CSS
     app.get('/common.css', (req, res) => {
-        res.sendFile(path.join(__dirname+'/common.css'))
+        res.sendFile(path.join(__dirname+'/common.css'));
     });
     //Favicon
     app.get('/logos/favicon.ico', (req, res) => {
-        res.sendFile(path.join(__dirname+'/logos/favicon.ico'))
+        res.sendFile(path.join(__dirname+'/logos/favicon.ico'));
     });
     ////
 
@@ -27,5 +27,5 @@ mongoService.connect( (err, client) => {
 
     app.use('/', express.static("placeholders"));
 
-    app.listen(80);
+    app.listen(process.env.PORT || 80);
 });
