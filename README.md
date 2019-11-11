@@ -11,7 +11,7 @@ Source for armchairresearch.org
     "content": "string",
     "changes": [{
         "changeid": "int(starting from 0, basically an unsigned long)",
-        ("author": "string") || ("ip": "string"),
+        "author": "username or ip",
         "datetime": "string",
         "content": "string",
     }],
