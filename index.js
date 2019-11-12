@@ -8,7 +8,7 @@ var mongoService = require('./mongoService');
 //run everything once db starts
 mongoService.connect( (err, client) => {
     if (err) console.error(err);
-    var pagehandler= require('./pagehandler.js');
+    var wikihandler= require('./wikihandler.js');
 
     app.use(bodyParser.json());
 
@@ -23,7 +23,9 @@ mongoService.connect( (err, client) => {
     });
     ////
 
-    app.use('/page', pagehandler);
+    app.use('/wiki', wikihandler);
+
+    app.use('/', express.static("placeholders"));
 
     app.use('/', express.static("placeholders"));
 
