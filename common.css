@@ -26,3 +26,7 @@
 	margin-left: 15%;
 	padding: 1% 1%;
 }
+
+canvas {
+	outline: black 3px solid;
+}

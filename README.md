@@ -45,3 +45,5 @@ Comments may or may not be included, same for epochtime(investigate Year 2038 pr
     "comments": ["commenturl(armchairresearch.com/page/:pageid/comment/:commentid"]
 }
 ``` 
+
+Blog will eventually be moved to a DB.

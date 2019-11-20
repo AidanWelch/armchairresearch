@@ -3,11 +3,11 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 
-var mongoService = require('./mongoService');
+//var mongoService = require('./mongoService');
 
 //run everything once db starts
-mongoService.connect( (err, client) => {
-    if (err) console.error(err);
+//mongoService.connect( (err, client) => {
+//    if (err) console.error(err);
     var wikihandler= require('./wikihandler.js');
 
     app.use(bodyParser.json());
@@ -25,9 +25,9 @@ mongoService.connect( (err, client) => {
 
     app.use('/wiki', wikihandler);
 
-    app.use('/', express.static("placeholders"));
+    app.use('/blog', express.static("blog"));
 
     app.use('/', express.static("placeholders"));
 
     app.listen(process.env.PORT || 80);
-});
+//});
