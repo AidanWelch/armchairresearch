@@ -1,11 +1,19 @@
 const RAD = 10;
 const CIRCLEINRADIANS = Math.PI * 2;
 
-function getPos(canvas, event){
+function getPos(canvas, event, walls){
     let bounds = canvas.getBoundingClientRect();
+    let x = event.clientX - bounds.left;
+    let y = event.clientY - bounds.top;
+    
+    if(walls != []){
+        let xdiff = x-walls[walls.length].x;
+        let ydiff = y-walls[walls.length].y;
+    }
+
     return {
-        x: event.clientX - bounds.left,
-        y: event.clientY - bounds.top
+        x: x,
+        y: y
     }
 }
 
@@ -54,10 +62,12 @@ function Tutorial(){
         points[i].draw(ctx);
     }
 
-    canvas.addEventListener('mousemove', function(event){
-        mousePos = getPos(canvas, event);
-        drawMouse(mousePos.x, mousePos.y, ctx);
+    var walls = [];
 
+    canvas.addEventListener('mousemove', function(event){
+        mousePos = getPos(canvas, event, walls);
+        drawMouse(mousePos.x, mousePos.y, ctx);
+        walls.push({x: mousePos.x, y: mousePos.y});
         let hit = 0;
         for(let i = 0; i < points.length; i++){
             points[i].detect(mousePos.x, mousePos.y, ctx);
