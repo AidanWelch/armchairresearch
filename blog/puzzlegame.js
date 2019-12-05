@@ -5,12 +5,26 @@ function getPos(canvas, event, walls){
     let bounds = canvas.getBoundingClientRect();
     let x = event.clientX - bounds.left;
     let y = event.clientY - bounds.top;
-    
-    if(walls != []){
-        let xdiff = x-walls[walls.length].x;
-        let ydiff = y-walls[walls.length].y;
+    function checkOverlap(){
+        if(walls.length != 0){
+            let xdiff = x-walls[walls.length-1].x;
+            let ydiff = y-walls[walls.length-1].y;
+            let slope = ydiff/xdiff;
+            let displacement = y-(slope*x);
+            for(let i = 0; i < walls.length-2; i++){
+                let sharedx = walls[i].x;  //this is the x which we will check for the overlap
+                if((walls[walls.length-1].x > sharedx && x < sharedx) || (walls[walls.length-1].x < sharedx && x > sharedx)){
+                    let liney = (sharedx*slope)+displacement;
+                    if(liney <= (walls[i].y+RAD) && liney >= (walls[i].y-RAD)){
+                        x = sharedx+(2*RAD);
+                        y = y;
+                        checkOverlap();
+                    }
+                }
+            }
+        }
     }
-
+    checkOverlap();
     return {
         x: x,
         y: y
