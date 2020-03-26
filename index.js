@@ -15,19 +15,19 @@ var path = require('path');
     ////Serve resources
     //CSS
     app.get('/common.css', (req, res) => {
-        res.sendFile(path.join(__dirname+'/common.css'));
+        res.sendFile(path.join(__dirname+'/served/common.css'));
     });
     //Favicon
     app.get('/logos/favicon.ico', (req, res) => {
-        res.sendFile(path.join(__dirname+'/logos/favicon.ico'));
+        res.sendFile(path.join(__dirname+'/served/logos/favicon.ico'));
     });
     ////
 
     app.use('/wiki', wikihandler);
 
-    app.use('/blog', express.static("blog"));
+    app.use('/blog', express.static("served/blog"));
 
-    app.use('/', express.static("placeholders"));
+    app.use('/', express.static("served/placeholders"));
 
     app.listen(process.env.PORT || 80);
 //});
