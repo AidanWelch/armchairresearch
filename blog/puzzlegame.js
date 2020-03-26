@@ -31,18 +31,24 @@ function getPos(canvas, event, walls){
     }
 }
 
-const Point = {
-    //assume there is an x and y here although they are created on assignment
-    hit: false,
-    color: "#ff0000",
-    detect: function (mouseX, mouseY, ctx){
+class Point {
+    constructor (x,y){
+        this.x = x;
+        this.y = y;
+        this.hit = false;
+        this.color = "#ff0000";
+        console.log("Point made");
+    }
+
+    detect (mouseX, mouseY, ctx){
         if( ( ((mouseX-RAD) <= this.x) && ((mouseX+RAD) >= this.x) ) && ( ((mouseY-RAD) <= this.y) && ((mouseY+RAD) >= this.y) ) ){//checks for collision between mouse and point(with box collision)
             this.hit = true; //yes we don't neeed hit, we can check color, this makes it more readable
             this.color = "#00ff00";
             this.draw(ctx);
         }
-    },
-    draw: function (ctx){
+    }
+
+    draw (ctx){
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, RAD, 0, CIRCLEINRADIANS, true);
@@ -67,10 +73,10 @@ function Tutorial(){
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     var points = [];
-    points.push(Object.assign({x: 50, y: 50}, Point));
-    points.push(Object.assign({x: 100, y: 100}, Point));
-    points.push(Object.assign({x: 150, y: 150}, Point));
-    points.push(Object.assign({x: 150, y: 50}, Point));
+    points.push(new Point(50, 50));
+    points.push(new Point(100, 100));
+    points.push(new Point(150, 150));
+    points.push(new Point(150, 50));
 
     for(let i = 0; i < points.length; i++){
         points[i].draw(ctx);
